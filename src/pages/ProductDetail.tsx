@@ -205,10 +205,6 @@ const ProductDetail = () => {
     toast.success(`Added ${quantity} meters of ${product.name} to cart!`);
   };
   
-  const handleBuyNow = () => {
-    handleAddToCart();
-    navigate('/cart');
-  };
 
   return (
     <div className="container-custom py-8">
@@ -338,9 +334,6 @@ const ProductDetail = () => {
                 <Share2 className="w-5 h-5" />
               </Button>
             </div>
-            <Button onClick={handleBuyNow} className="w-full btn-accent">
-              Buy Now - ₹{(product.price * quantity).toLocaleString()}
-            </Button>
             <Button variant="outline" className="w-full">
               <MessageSquare className="w-5 h-5 mr-2" />
               Request Bulk Quote
