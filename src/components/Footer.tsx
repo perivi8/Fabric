@@ -17,7 +17,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919443936367"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 hover:bg-green-700 p-2 rounded-lg transition-colors"
@@ -73,19 +73,29 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 mt-0.5 text-highlight" />
                 <div>
                   <p className="text-primary-foreground/80">
-                    123 Textile Street<br />
-                    Coimbatore, Tamil Nadu<br />
-                    India - 641001
+                    14/18, SARANGAPANI SOUTH<br />
+                    Kumbakonam, Thanjavur<br />
+                    India - 612001
                   </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-highlight" />
-                <p className="text-primary-foreground/80">+91 98765 43210</p>
+                <p className="text-primary-foreground/80">+91 94439 36367</p>
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-highlight" />
-                <p className="text-primary-foreground/80">info@jaichitratextile.com</p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <Mail className="w-4 h-4 text-highlight flex-shrink-0" />
+                  <a href="mailto:contact@jaichitratextiles.shop" className="text-primary-foreground/80 hover:underline">
+                    contact@jaichitratextiles.shop
+                  </a>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail className="w-4 h-4 text-highlight flex-shrink-0" />
+                  <a href="mailto:jaichitratextiles99@gmail.com" className="text-primary-foreground/80 hover:underline">
+                    jaichitratextiles99@gmail.com
+                  </a>
+                </div>
               </div>
             </div>
           </div>

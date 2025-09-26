@@ -171,9 +171,9 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold mb-1">Visit Our Showroom</h4>
                     <p className="text-muted-foreground leading-relaxed">
-                      123 Textile Street<br />
-                      RS Puram, Coimbatore<br />
-                      Tamil Nadu, India - 641002
+                      14/18, SARANGAPANI SOUTH<br />
+                      Kumbakonam, Thanjavur<br />
+                      Tamil Nadu, India - 612001
                     </p>
                   </div>
                 </div>
@@ -182,8 +182,7 @@ const Contact = () => {
                   <Phone className="w-6 h-6 text-highlight mt-1" />
                   <div>
                     <h4 className="font-semibold mb-1">Call Us</h4>
-                    <p className="text-muted-foreground">+91 98765 43210</p>
-                    <p className="text-muted-foreground">+91 98765 43211</p>
+                    <p className="text-muted-foreground">+91 94439 36367</p>
                     <p className="text-sm text-muted-foreground">Mon-Sat: 9:00 AM - 7:00 PM</p>
                   </div>
                 </div>
@@ -192,8 +191,8 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-highlight mt-1" />
                   <div>
                     <h4 className="font-semibold mb-1">Email Us</h4>
-                    <p className="text-muted-foreground">info@jaichitratextile.com</p>
-                    <p className="text-muted-foreground">bulk@jaichitratextile.com</p>
+                    <p className="text-muted-foreground">contact@jaichitratextiles.shop</p>
+                    <p className="text-muted-foreground">jaichitratextiles99@gmail.com</p>
                     <p className="text-sm text-muted-foreground">Response within 24 hours</p>
                   </div>
                 </div>
