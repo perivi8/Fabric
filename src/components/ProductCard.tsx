@@ -55,16 +55,21 @@ const ProductCard = ({ product, viewMode = "grid" }: ProductCardProps) => {
   if (viewMode === "list") {
     return (
       <div className="fabric-card flex flex-col md:flex-row">
-        <div className="md:w-48 h-48 md:h-32">
+        <Link to={`/products/${product.id}`} className="md:w-48 h-48 md:h-32 block">
           <img
             src={product.image}
             alt={product.name}
             className="w-full h-full object-cover"
           />
-        </div>
+        </Link>
         <div className="flex-1 p-6">
           <div className="flex flex-col md:flex-row md:items-center justify-between">
             <div className="flex-1">
+              <Link to={`/products/${product.id}`} className="block">
+                <h3 className="text-card-title hover:text-highlight transition-colors mb-2">
+                  {product.name}
+                </h3>
+              </Link>
               <div className="flex items-center gap-2 mb-2">
                 {product.tags.includes("retail") && (
                   <Badge variant="secondary">Retail</Badge>
@@ -73,12 +78,7 @@ const ProductCard = ({ product, viewMode = "grid" }: ProductCardProps) => {
                   <Badge variant="outline">Wholesale</Badge>
                 )}
               </div>
-              <Link to={`/products/${product.id}`}>
-                <h3 className="text-card-title hover:text-highlight transition-colors mb-2">
-                  {product.name}
-                </h3>
-              </Link>
-              <p className="text-muted-foreground text-sm mb-2">
+              <p className="text-muted-foreground text-sm mb-3">
                 {product.material} • {product.width} • {product.gsm}
               </p>
               <div className="flex flex-wrap gap-1 mb-3">
@@ -87,6 +87,11 @@ const ProductCard = ({ product, viewMode = "grid" }: ProductCardProps) => {
                     {color}
                   </span>
                 ))}
+                {product.colors.length > 3 && (
+                  <span className="text-xs bg-muted px-2 py-1 rounded">
+                    +{product.colors.length - 3}
+                  </span>
+                )}
               </div>
             </div>
             <div className="md:text-right">
@@ -94,14 +99,13 @@ const ProductCard = ({ product, viewMode = "grid" }: ProductCardProps) => {
                 <p className="text-price text-highlight">₹{product.price}/meter</p>
                 <p className="text-sm text-muted-foreground">Bulk: ₹{product.bulkPrice}/meter</p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
                 <Button onClick={handleAddToCart} size="sm" className="btn-primary" disabled={!product.inStock}>
                   <ShoppingCart className="w-4 h-4 mr-2" />
                   Add to Cart
                 </Button>
                 <Button onClick={handleQuoteClick} size="sm" variant="outline">
-                  <MessageSquare className="w-4 h-4 mr-2" />
-                  Quote
+                  <MessageSquare className="w-4 h-4" />
                 </Button>
               </div>
             </div>
@@ -112,34 +116,33 @@ const ProductCard = ({ product, viewMode = "grid" }: ProductCardProps) => {
   }
 
   return (
-    <div className="fabric-card group">
-      <div className="relative overflow-hidden">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <div className="absolute top-3 left-3 flex gap-2">
-          {product.tags.includes("retail") && (
-            <Badge variant="secondary">Retail</Badge>
-          )}
-          {product.tags.includes("wholesale") && (
-            <Badge variant="outline" className="bg-white/90">Wholesale</Badge>
+    <div className="fabric-card group relative">
+      <Link to={`/products/${product.id}`} className="block">
+        <div className="relative overflow-hidden">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute top-3 left-3 flex gap-2">
+            {product.tags.includes("retail") && (
+              <Badge variant="secondary">Retail</Badge>
+            )}
+            {product.tags.includes("wholesale") && (
+              <Badge variant="outline" className="bg-white/90">Wholesale</Badge>
+            )}
+          </div>
+          {!product.inStock && (
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+              <Badge variant="destructive">Out of Stock</Badge>
+            </div>
           )}
         </div>
-        {!product.inStock && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <Badge variant="destructive">Out of Stock</Badge>
-          </div>
-        )}
-      </div>
 
-      <div className="p-4">
-        <Link to={`/products/${product.id}`}>
+        <div className="p-4">
           <h3 className="text-card-title hover:text-highlight transition-colors mb-2">
             {product.name}
           </h3>
-        </Link>
         
         <p className="text-muted-foreground text-sm mb-3">
           {product.material} • {product.width} • {product.gsm}
@@ -169,7 +172,7 @@ const ProductCard = ({ product, viewMode = "grid" }: ProductCardProps) => {
           </div>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
           <Button onClick={handleAddToCart} size="sm" className="flex-1 btn-primary" disabled={!product.inStock}>
             <ShoppingCart className="w-4 h-4 mr-2" />
             Add to Cart
@@ -179,6 +182,7 @@ const ProductCard = ({ product, viewMode = "grid" }: ProductCardProps) => {
           </Button>
         </div>
       </div>
+      </Link>
     </div>
   );
 };
